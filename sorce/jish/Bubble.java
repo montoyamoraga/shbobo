@@ -58,12 +58,14 @@ implements TextListener, ComponentListener, LayoutManager {
    return;
   }
   char c = e.getKeyChar();
+  // System.out.println((int)e.getKeyChar());
   if ((c=='\n') || (c=='\r')) {
     um.addEdit(new UndoString(this,txt,lastext));
     editing = false;
     return;
   }
   if (c>=32) chng((first?""+c:txt+c));
+  //if (c==5) chng((first?""+c:txt+"€"));
   if (c==8) {
    if (txt.length()<=0) 
     um.addEdit(new UndoTake(this));
@@ -86,7 +88,8 @@ implements TextListener, ComponentListener, LayoutManager {
   //g.setFont(fi);
   g.setFont(f.deriveFont(Font.ITALIC));
   g.setColor(Color.black);
-  g.drawString(txt,(f.getSize())>>2,g.getFontMetrics().getAscent());   
+  g.drawString(txt,(f.getSize())>>2,g.getFontMetrics().getAscent());  
+  //drawSubtext(g);  
  }	
 
  public void visitAlnum(char c) {
@@ -98,6 +101,9 @@ implements TextListener, ComponentListener, LayoutManager {
 
   super.boundsVisit(r);
  }
+ 
+ public void gruberVisit(Grub g) {}
+ 
  public void boundsVisit(Rectangle r) {
   //validate();
   stubbornVisit(r);

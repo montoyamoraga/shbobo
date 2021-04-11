@@ -8,7 +8,7 @@
  <@ weirdpatch 
  <# [] 
  {(left (horn <f1> 15)) 
- (jump (mount 3 88 15))}>> 
+ (jump (hornb 100 48 15))}>> 
  <@ ndo 
  <# [amt func] 
  <? <' amt 0> <ndo <- amt 1> func>> 
